@@ -17,7 +17,7 @@ public class ImpostoRemessaConforme extends JFrame {
 
     private void createUI() {
         setTitle("Calculadora de Impostos Remessa Conforme");
-        setSize(800, 520);
+        setSize(950, 520);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
