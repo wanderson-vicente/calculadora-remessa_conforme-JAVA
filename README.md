@@ -1,4 +1,4 @@
-# Projeto de Calculadora de Impostos Remessa Conforme
+# Projeto de Calculadora de Impostos Remessa Conforme em JAVA
 ## Introdução
 Este projeto é uma calculadora de impostos para compras internacionais que utiliza a taxa de câmbio digitada pelo usuário para calcular o imposto de importação. O objetivo é fornecer uma ferramenta fácil de usar para calcular o imposto de importação com base no valor do produto e do frete.
 ## Componentes
