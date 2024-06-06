@@ -17,7 +17,7 @@ public class ImpostoRemessaConforme extends JFrame {
 
     private void createUI() {
         setTitle("Calculadora de Impostos Remessa Conforme");
-        setSize(600, 400);
+        setSize(800, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -26,7 +26,7 @@ public class ImpostoRemessaConforme extends JFrame {
 
         // Container com a imagem
         JPanel imagePanel = new JPanel();
-        imagePanel.setPreferredSize(new Dimension(200, 400));
+        imagePanel.setPreferredSize(new Dimension(400, 400));
         imagePanel.setBackground(Color.WHITE);
 
         // Carregar a imagem usando o ClassLoader
@@ -48,7 +48,7 @@ public class ImpostoRemessaConforme extends JFrame {
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(5, 2, 10, 10));
+        inputPanel.setLayout(new GridLayout(6, 2, 10, 10));
 
         JLabel valorProdutoLabel = new JLabel("Preço do produto (em R$):");
         valorProdutoField = new JTextField();
@@ -70,6 +70,14 @@ public class ImpostoRemessaConforme extends JFrame {
         calcularButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         calcularButton.addActionListener(new CalcularImpostosAction());
 
+        JButton limparButton = new JButton("Limpar");
+        limparButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        limparButton.addActionListener(new LimparCamposAction());
+
+        JButton sairButton = new JButton("Sair");
+        sairButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        sairButton.addActionListener(e -> System.exit(0));
+
         resultadoArea = new JTextArea();
         resultadoArea.setEditable(false);
         resultadoArea.setBorder(BorderFactory.createTitledBorder("Resultado"));
@@ -79,6 +87,10 @@ public class ImpostoRemessaConforme extends JFrame {
         container.add(inputPanel);
         container.add(Box.createVerticalStrut(20));
         container.add(calcularButton);
+        container.add(Box.createVerticalStrut(10));
+        container.add(limparButton);
+        container.add(Box.createVerticalStrut(10));
+        container.add(sairButton);
         container.add(Box.createVerticalStrut(20));
         container.add(new JScrollPane(resultadoArea));
 
@@ -125,6 +137,16 @@ public class ImpostoRemessaConforme extends JFrame {
             resultadoArea.setText(resultado);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Por favor, insira valores válidos para o produto, frete e cotação do dólar.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private class LimparCamposAction implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            valorProdutoField.setText("");
+            valorFreteField.setText("");
+            cotacaoDolarField.setText("");
+            resultadoArea.setText("");
         }
     }
 
