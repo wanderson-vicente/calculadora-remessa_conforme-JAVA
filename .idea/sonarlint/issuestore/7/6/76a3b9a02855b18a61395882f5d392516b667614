@@ -1,19 +1,13 @@
 
 E
-java:S1659e"#Declare "total" on a separate line.(›Όδωÿÿÿÿ8Ζ¬τώ1
+java:S1659k"#Declare "total" on a separate line.(›Όδωÿÿÿÿ8»οΰτώ1
 n
-java:S3457r"Q%n should be used in place of \n to produce the platform-specific line separator.(ΕΡ«ρ8Κ¬τώ1
+java:S3457x"Q%n should be used in place of \n to produce the platform-specific line separator.(ΕΡ«ρ8Ώοΰτώ1
 s
-java:S3457s"Q%n should be used in place of \n to produce the platform-specific line separator.(ώ·²υϋÿÿÿÿ8Λ¬τώ1
+java:S3457y"Q%n should be used in place of \n to produce the platform-specific line separator.(ώ·²υϋÿÿÿÿ8ΐοΰτώ1
 n
-java:S3457t"Q%n should be used in place of \n to produce the platform-specific line separator.(±Λ•»8Μ¬τώ1
-B
-java:S3457t"%String contains no format specifiers.(±Λ•»8Μ¬τώ1
-s
-java:S3457u"Q%n should be used in place of \n to produce the platform-specific line separator.(ΐ§Τϊÿÿÿÿ8Ν¬τώ1
+java:S3457z"Q%n should be used in place of \n to produce the platform-specific line separator.(•‰Υτ8ΐοΰτώ1
 n
-java:S3457v"Q%n should be used in place of \n to produce the platform-specific line separator.(ΤΟδρ8Ξ¬τώ1
-W
-java:S3400"9Remove this method and declare a constant for this value.(ΥώΤ8Π¬τώ1
+java:S3457{"Q%n should be used in place of \n to produce the platform-specific line separator.(ΤΟδρ8Αοΰτώ1
 L
-java:S3398\"/Move this method into "CalcularImpostosAction".(Υ¨ϋπ8Φ¬τώ1
+java:S3398b"/Move this method into "CalcularImpostosAction".(Υ¨ϋπ8Εοΰτώ1

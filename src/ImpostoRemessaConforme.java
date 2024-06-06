@@ -8,6 +8,7 @@ public class ImpostoRemessaConforme extends JFrame {
 
     private JTextField valorProdutoField;
     private JTextField valorFreteField;
+    private JTextField cotacaoDolarField;
     private JTextArea resultadoArea;
 
     public ImpostoRemessaConforme() {
@@ -16,7 +17,7 @@ public class ImpostoRemessaConforme extends JFrame {
 
     private void createUI() {
         setTitle("Calculadora de Impostos Remessa Conforme");
-        setSize(800, 500);
+        setSize(600, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -25,7 +26,7 @@ public class ImpostoRemessaConforme extends JFrame {
 
         // Container com a imagem
         JPanel imagePanel = new JPanel();
-        imagePanel.setPreferredSize(new Dimension(400, 400));
+        imagePanel.setPreferredSize(new Dimension(200, 400));
         imagePanel.setBackground(Color.WHITE);
 
         // Carregar a imagem usando o ClassLoader
@@ -47,7 +48,7 @@ public class ImpostoRemessaConforme extends JFrame {
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(4, 2, 10, 10));
+        inputPanel.setLayout(new GridLayout(5, 2, 10, 10));
 
         JLabel valorProdutoLabel = new JLabel("Preço do produto (em R$):");
         valorProdutoField = new JTextField();
@@ -55,10 +56,15 @@ public class ImpostoRemessaConforme extends JFrame {
         JLabel valorFreteLabel = new JLabel("Valor do frete (em R$):");
         valorFreteField = new JTextField();
 
+        JLabel cotacaoDolarLabel = new JLabel("Cotação do dólar (em R$):");
+        cotacaoDolarField = new JTextField();
+
         inputPanel.add(valorProdutoLabel);
         inputPanel.add(valorProdutoField);
         inputPanel.add(valorFreteLabel);
         inputPanel.add(valorFreteField);
+        inputPanel.add(cotacaoDolarLabel);
+        inputPanel.add(cotacaoDolarField);
 
         JButton calcularButton = new JButton("Calcular");
         calcularButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -93,7 +99,7 @@ public class ImpostoRemessaConforme extends JFrame {
         try {
             double valorProdutoBRL = Double.parseDouble(valorProdutoField.getText());
             double valorFreteBRL = Double.parseDouble(valorFreteField.getText());
-            double brlToUsd = getRealTimeRate();
+            double brlToUsd = Double.parseDouble(cotacaoDolarField.getText());
 
             double valorTotalBRL = valorProdutoBRL + valorFreteBRL;
             double valorTotalUSD = valorTotalBRL / brlToUsd;
@@ -113,20 +119,13 @@ public class ImpostoRemessaConforme extends JFrame {
 
             String resultado = String.format("Valor total em dólar: US$ %.2f\n", valorTotalUSD);
             resultado += String.format("Cotação do dólar: R$ %.2f\n", brlToUsd);
-            resultado += String.format("Com isso, a alíquota de Imposto de Importação\n");
-            resultado += String.format("a ser paga é de: %d%%\n", aliquota);
+            resultado += String.format("Com isso, a alíquota de Imposto de Importação a ser paga é de: %d%%\n", aliquota);
             resultado += String.format("Total a pagar em reais: R$ %.2f\n", total * brlToUsd);
 
             resultadoArea.setText(resultado);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Por favor, insira valores válidos para o produto e o frete.", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor, insira valores válidos para o produto, frete e cotação do dólar.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-    }
-
-    // Método fictício para obter a taxa de câmbio (simulação)
-    private double getRealTimeRate() {
-        // Simule uma taxa de câmbio. Em um caso real, você buscaria isso de uma API
-        return 5.00;
     }
 
     public static void main(String[] args) {
