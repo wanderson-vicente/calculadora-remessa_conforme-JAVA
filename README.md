@@ -16,7 +16,7 @@ Este projeto é uma calculadora de impostos para compras internacionais que util
 * O código utiliza a biblioteca java.awt.event para lidar com eventos de clique nos botões.
 * O código utiliza a biblioteca java.text para formatar a saída do resultado.
 ## Imagem da Tela do Aplicativo
-[Imagem da tela do aplicativo]
+![Imagem do Projeto](https://github.com/wanderson-vicente/calculadora-remessa_conforme-JAVA/blob/879d403fd5d351d4c234ca7caeb4774d2068a55d/Captura-de-tela.png)
 ## Autor
 Wanderson Vicente
 Data
