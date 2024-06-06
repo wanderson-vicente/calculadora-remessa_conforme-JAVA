@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1293863-11dd-487c-85c9-141959d416a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/6/76a3b9a02855b18a61395882f5d392516b667614" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/6/76a3b9a02855b18a61395882f5d392516b667614" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ImpostoRemessaConforme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImpostoRemessaConforme.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

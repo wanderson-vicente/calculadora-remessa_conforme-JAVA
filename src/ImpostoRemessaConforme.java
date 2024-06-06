@@ -17,7 +17,7 @@ public class ImpostoRemessaConforme extends JFrame {
 
     private void createUI() {
         setTitle("Calculadora de Impostos Remessa Conforme");
-        setSize(800, 600);
+        setSize(800, 520);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -26,7 +26,7 @@ public class ImpostoRemessaConforme extends JFrame {
 
         // Container com a imagem
         JPanel imagePanel = new JPanel();
-        imagePanel.setPreferredSize(new Dimension(400, 400));
+        imagePanel.setPreferredSize(new Dimension(400, 600));
         imagePanel.setBackground(Color.WHITE);
 
         // Carregar a imagem usando o ClassLoader
@@ -48,7 +48,7 @@ public class ImpostoRemessaConforme extends JFrame {
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(6, 2, 10, 10));
+        inputPanel.setLayout(new GridLayout(3, 2, 10, 10));
 
         JLabel valorProdutoLabel = new JLabel("Preço do produto (em R$):");
         valorProdutoField = new JTextField();
@@ -66,33 +66,34 @@ public class ImpostoRemessaConforme extends JFrame {
         inputPanel.add(cotacaoDolarLabel);
         inputPanel.add(cotacaoDolarField);
 
-        JButton calcularButton = new JButton("Calcular");
-        calcularButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        calcularButton.addActionListener(new CalcularImpostosAction());
-
-        JButton limparButton = new JButton("Limpar");
-        limparButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        limparButton.addActionListener(new LimparCamposAction());
-
-        JButton sairButton = new JButton("Sair");
-        sairButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        sairButton.addActionListener(e -> System.exit(0));
-
         resultadoArea = new JTextArea();
         resultadoArea.setEditable(false);
         resultadoArea.setBorder(BorderFactory.createTitledBorder("Resultado"));
+
+        // Painel para os botões
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(1, 3, 10, 10));
+
+        JButton calcularButton = new JButton("Calcular");
+        calcularButton.addActionListener(new CalcularImpostosAction());
+
+        JButton limparButton = new JButton("Limpar");
+        limparButton.addActionListener(new LimparCamposAction());
+
+        JButton sairButton = new JButton("Sair");
+        sairButton.addActionListener(e -> System.exit(0));
+
+        buttonPanel.add(calcularButton);
+        buttonPanel.add(limparButton);
+        buttonPanel.add(sairButton);
 
         container.add(titleLabel);
         container.add(Box.createVerticalStrut(20));
         container.add(inputPanel);
         container.add(Box.createVerticalStrut(20));
-        container.add(calcularButton);
-        container.add(Box.createVerticalStrut(10));
-        container.add(limparButton);
-        container.add(Box.createVerticalStrut(10));
-        container.add(sairButton);
-        container.add(Box.createVerticalStrut(20));
         container.add(new JScrollPane(resultadoArea));
+        container.add(Box.createVerticalStrut(20));
+        container.add(buttonPanel);
 
         mainPanel.add(imagePanel, BorderLayout.WEST);
         mainPanel.add(container, BorderLayout.CENTER);
@@ -131,12 +132,13 @@ public class ImpostoRemessaConforme extends JFrame {
 
             String resultado = String.format("Valor total em dólar: US$ %.2f\n", valorTotalUSD);
             resultado += String.format("Cotação do dólar: R$ %.2f\n", brlToUsd);
-            resultado += String.format("Com isso, a alíquota de Imposto de Importação a ser paga é de: %d%%\n", aliquota);
+            resultado += String.format("Com isso, a alíquota de Imposto de Importação\n");
+            resultado += String.format("a ser paga é de: %d%%\n", aliquota);
             resultado += String.format("Total a pagar em reais: R$ %.2f\n", total * brlToUsd);
 
             resultadoArea.setText(resultado);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Por favor, insira valores válidos para o produto, frete e cotação do dólar.", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor, insira valores válidos para o produto, frete e cotação do dólar, utilize ( . ) no lugar de ( , ).", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
